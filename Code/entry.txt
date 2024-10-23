@@ -1,0 +1,13 @@
+me
+    ete (A1 == A2 && A2 != A1) {
+        A1 lore 2 + 3
+    }
+    setch {
+        muchotexto (A1,A2)
+    }
+
+    chambea(I2 lore 1 , I2 < 3, I2++){
+        muchotexto (I2)
+    }
+corro
+

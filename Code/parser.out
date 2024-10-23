@@ -1,0 +1,788 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    elpepe
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> me instructions corro
+Rule 2     instructions -> instructions instruction
+Rule 3     instructions -> instruction
+Rule 4     instruction -> loreI
+Rule 5     instruction -> eteI
+Rule 6     instruction -> muchotextoI
+Rule 7     loreI -> var lore arg1
+Rule 8     loreI -> var lore arg1 extralore
+Rule 9     arg1 -> num
+Rule 10    arg1 -> var
+Rule 11    extralore -> operator arg1
+Rule 12    extralore -> operator arg1 extralore
+Rule 13    operator -> plus
+Rule 14    operator -> minus
+Rule 15    operator -> times
+Rule 16    operator -> divide
+Rule 17    eteI -> ete lparen conditional rparen lcolon instructions rcolon
+Rule 18    eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI
+Rule 19    conditional -> arg1 condition arg1
+Rule 20    conditional -> arg1 condition arg1 logical conditional
+Rule 21    condition -> greater
+Rule 22    condition -> equal
+Rule 23    condition -> less
+Rule 24    condition -> greater_equal
+Rule 25    condition -> less_equal
+Rule 26    condition -> not_equal
+Rule 27    logical -> and
+Rule 28    logical -> or
+Rule 29    setchI -> setch lcolon instructions rcolon
+Rule 30    muchotextoI -> muchotexto lparen arg1 rparen
+Rule 31    muchotextoI -> muchotexto lparen arg1 coma arg1 rparen
+Rule 32    chambeaI -> chambea lparen lore coma conditional coma additive rparen lcolon instructions rcolon
+Rule 33    additive -> plusplus
+Rule 34    additive -> minusminus
+
+Terminals, with rules where they appear
+
+and                  : 27
+chambea              : 32
+coma                 : 31 32 32
+corro                : 1
+divide               : 16
+elpepe               : 
+equal                : 22
+error                : 
+ete                  : 17 18
+greater              : 21
+greater_equal        : 24
+lcolon               : 17 18 29 32
+less                 : 23
+less_equal           : 25
+lore                 : 7 8 32
+lparen               : 17 18 30 31 32
+me                   : 1
+minus                : 14
+minusminus           : 34
+muchotexto           : 30 31
+not_equal            : 26
+num                  : 9
+or                   : 28
+plus                 : 13
+plusplus             : 33
+rcolon               : 17 18 29 32
+rparen               : 17 18 30 31 32
+setch                : 29
+times                : 15
+var                  : 7 8 10
+
+Nonterminals, with rules where they appear
+
+additive             : 32
+arg1                 : 7 8 11 12 19 19 20 20 30 31 31
+chambeaI             : 
+condition            : 19 20
+conditional          : 17 18 20 32
+eteI                 : 5
+extralore            : 8 12
+instruction          : 2 3
+instructions         : 1 2 17 18 29 32
+logical              : 20
+loreI                : 4
+muchotextoI          : 6
+operator             : 11 12
+program              : 0
+setchI               : 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . me instructions corro
+
+    me              shift and go to state 2
+
+    program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> me . instructions corro
+    (2) instructions -> . instructions instruction
+    (3) instructions -> . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instructions                   shift and go to state 3
+    instruction                    shift and go to state 4
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 3
+
+    (1) program -> me instructions . corro
+    (2) instructions -> instructions . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    corro           shift and go to state 11
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instruction                    shift and go to state 12
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 4
+
+    (3) instructions -> instruction .
+
+    corro           reduce using rule 3 (instructions -> instruction .)
+    var             reduce using rule 3 (instructions -> instruction .)
+    ete             reduce using rule 3 (instructions -> instruction .)
+    muchotexto      reduce using rule 3 (instructions -> instruction .)
+    rcolon          reduce using rule 3 (instructions -> instruction .)
+
+
+state 5
+
+    (4) instruction -> loreI .
+
+    corro           reduce using rule 4 (instruction -> loreI .)
+    var             reduce using rule 4 (instruction -> loreI .)
+    ete             reduce using rule 4 (instruction -> loreI .)
+    muchotexto      reduce using rule 4 (instruction -> loreI .)
+    rcolon          reduce using rule 4 (instruction -> loreI .)
+
+
+state 6
+
+    (5) instruction -> eteI .
+
+    corro           reduce using rule 5 (instruction -> eteI .)
+    var             reduce using rule 5 (instruction -> eteI .)
+    ete             reduce using rule 5 (instruction -> eteI .)
+    muchotexto      reduce using rule 5 (instruction -> eteI .)
+    rcolon          reduce using rule 5 (instruction -> eteI .)
+
+
+state 7
+
+    (6) instruction -> muchotextoI .
+
+    corro           reduce using rule 6 (instruction -> muchotextoI .)
+    var             reduce using rule 6 (instruction -> muchotextoI .)
+    ete             reduce using rule 6 (instruction -> muchotextoI .)
+    muchotexto      reduce using rule 6 (instruction -> muchotextoI .)
+    rcolon          reduce using rule 6 (instruction -> muchotextoI .)
+
+
+state 8
+
+    (7) loreI -> var . lore arg1
+    (8) loreI -> var . lore arg1 extralore
+
+    lore            shift and go to state 13
+
+
+state 9
+
+    (17) eteI -> ete . lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> ete . lparen conditional rparen lcolon instructions rcolon setchI
+
+    lparen          shift and go to state 14
+
+
+state 10
+
+    (30) muchotextoI -> muchotexto . lparen arg1 rparen
+    (31) muchotextoI -> muchotexto . lparen arg1 coma arg1 rparen
+
+    lparen          shift and go to state 15
+
+
+state 11
+
+    (1) program -> me instructions corro .
+
+    $end            reduce using rule 1 (program -> me instructions corro .)
+
+
+state 12
+
+    (2) instructions -> instructions instruction .
+
+    corro           reduce using rule 2 (instructions -> instructions instruction .)
+    var             reduce using rule 2 (instructions -> instructions instruction .)
+    ete             reduce using rule 2 (instructions -> instructions instruction .)
+    muchotexto      reduce using rule 2 (instructions -> instructions instruction .)
+    rcolon          reduce using rule 2 (instructions -> instructions instruction .)
+
+
+state 13
+
+    (7) loreI -> var lore . arg1
+    (8) loreI -> var lore . arg1 extralore
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 17
+
+state 14
+
+    (17) eteI -> ete lparen . conditional rparen lcolon instructions rcolon
+    (18) eteI -> ete lparen . conditional rparen lcolon instructions rcolon setchI
+    (19) conditional -> . arg1 condition arg1
+    (20) conditional -> . arg1 condition arg1 logical conditional
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    conditional                    shift and go to state 19
+    arg1                           shift and go to state 20
+
+state 15
+
+    (30) muchotextoI -> muchotexto lparen . arg1 rparen
+    (31) muchotextoI -> muchotexto lparen . arg1 coma arg1 rparen
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 21
+
+state 16
+
+    (10) arg1 -> var .
+
+    plus            reduce using rule 10 (arg1 -> var .)
+    minus           reduce using rule 10 (arg1 -> var .)
+    times           reduce using rule 10 (arg1 -> var .)
+    divide          reduce using rule 10 (arg1 -> var .)
+    corro           reduce using rule 10 (arg1 -> var .)
+    var             reduce using rule 10 (arg1 -> var .)
+    ete             reduce using rule 10 (arg1 -> var .)
+    muchotexto      reduce using rule 10 (arg1 -> var .)
+    rcolon          reduce using rule 10 (arg1 -> var .)
+    greater         reduce using rule 10 (arg1 -> var .)
+    equal           reduce using rule 10 (arg1 -> var .)
+    less            reduce using rule 10 (arg1 -> var .)
+    greater_equal   reduce using rule 10 (arg1 -> var .)
+    less_equal      reduce using rule 10 (arg1 -> var .)
+    not_equal       reduce using rule 10 (arg1 -> var .)
+    rparen          reduce using rule 10 (arg1 -> var .)
+    coma            reduce using rule 10 (arg1 -> var .)
+    and             reduce using rule 10 (arg1 -> var .)
+    or              reduce using rule 10 (arg1 -> var .)
+
+
+state 17
+
+    (7) loreI -> var lore arg1 .
+    (8) loreI -> var lore arg1 . extralore
+    (11) extralore -> . operator arg1
+    (12) extralore -> . operator arg1 extralore
+    (13) operator -> . plus
+    (14) operator -> . minus
+    (15) operator -> . times
+    (16) operator -> . divide
+
+    corro           reduce using rule 7 (loreI -> var lore arg1 .)
+    var             reduce using rule 7 (loreI -> var lore arg1 .)
+    ete             reduce using rule 7 (loreI -> var lore arg1 .)
+    muchotexto      reduce using rule 7 (loreI -> var lore arg1 .)
+    rcolon          reduce using rule 7 (loreI -> var lore arg1 .)
+    plus            shift and go to state 24
+    minus           shift and go to state 25
+    times           shift and go to state 26
+    divide          shift and go to state 27
+
+    extralore                      shift and go to state 22
+    operator                       shift and go to state 23
+
+state 18
+
+    (9) arg1 -> num .
+
+    plus            reduce using rule 9 (arg1 -> num .)
+    minus           reduce using rule 9 (arg1 -> num .)
+    times           reduce using rule 9 (arg1 -> num .)
+    divide          reduce using rule 9 (arg1 -> num .)
+    corro           reduce using rule 9 (arg1 -> num .)
+    var             reduce using rule 9 (arg1 -> num .)
+    ete             reduce using rule 9 (arg1 -> num .)
+    muchotexto      reduce using rule 9 (arg1 -> num .)
+    rcolon          reduce using rule 9 (arg1 -> num .)
+    greater         reduce using rule 9 (arg1 -> num .)
+    equal           reduce using rule 9 (arg1 -> num .)
+    less            reduce using rule 9 (arg1 -> num .)
+    greater_equal   reduce using rule 9 (arg1 -> num .)
+    less_equal      reduce using rule 9 (arg1 -> num .)
+    not_equal       reduce using rule 9 (arg1 -> num .)
+    rparen          reduce using rule 9 (arg1 -> num .)
+    coma            reduce using rule 9 (arg1 -> num .)
+    and             reduce using rule 9 (arg1 -> num .)
+    or              reduce using rule 9 (arg1 -> num .)
+
+
+state 19
+
+    (17) eteI -> ete lparen conditional . rparen lcolon instructions rcolon
+    (18) eteI -> ete lparen conditional . rparen lcolon instructions rcolon setchI
+
+    rparen          shift and go to state 28
+
+
+state 20
+
+    (19) conditional -> arg1 . condition arg1
+    (20) conditional -> arg1 . condition arg1 logical conditional
+    (21) condition -> . greater
+    (22) condition -> . equal
+    (23) condition -> . less
+    (24) condition -> . greater_equal
+    (25) condition -> . less_equal
+    (26) condition -> . not_equal
+
+    greater         shift and go to state 30
+    equal           shift and go to state 31
+    less            shift and go to state 32
+    greater_equal   shift and go to state 33
+    less_equal      shift and go to state 34
+    not_equal       shift and go to state 35
+
+    condition                      shift and go to state 29
+
+state 21
+
+    (30) muchotextoI -> muchotexto lparen arg1 . rparen
+    (31) muchotextoI -> muchotexto lparen arg1 . coma arg1 rparen
+
+    rparen          shift and go to state 36
+    coma            shift and go to state 37
+
+
+state 22
+
+    (8) loreI -> var lore arg1 extralore .
+
+    corro           reduce using rule 8 (loreI -> var lore arg1 extralore .)
+    var             reduce using rule 8 (loreI -> var lore arg1 extralore .)
+    ete             reduce using rule 8 (loreI -> var lore arg1 extralore .)
+    muchotexto      reduce using rule 8 (loreI -> var lore arg1 extralore .)
+    rcolon          reduce using rule 8 (loreI -> var lore arg1 extralore .)
+
+
+state 23
+
+    (11) extralore -> operator . arg1
+    (12) extralore -> operator . arg1 extralore
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 38
+
+state 24
+
+    (13) operator -> plus .
+
+    num             reduce using rule 13 (operator -> plus .)
+    var             reduce using rule 13 (operator -> plus .)
+
+
+state 25
+
+    (14) operator -> minus .
+
+    num             reduce using rule 14 (operator -> minus .)
+    var             reduce using rule 14 (operator -> minus .)
+
+
+state 26
+
+    (15) operator -> times .
+
+    num             reduce using rule 15 (operator -> times .)
+    var             reduce using rule 15 (operator -> times .)
+
+
+state 27
+
+    (16) operator -> divide .
+
+    num             reduce using rule 16 (operator -> divide .)
+    var             reduce using rule 16 (operator -> divide .)
+
+
+state 28
+
+    (17) eteI -> ete lparen conditional rparen . lcolon instructions rcolon
+    (18) eteI -> ete lparen conditional rparen . lcolon instructions rcolon setchI
+
+    lcolon          shift and go to state 39
+
+
+state 29
+
+    (19) conditional -> arg1 condition . arg1
+    (20) conditional -> arg1 condition . arg1 logical conditional
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 40
+
+state 30
+
+    (21) condition -> greater .
+
+    num             reduce using rule 21 (condition -> greater .)
+    var             reduce using rule 21 (condition -> greater .)
+
+
+state 31
+
+    (22) condition -> equal .
+
+    num             reduce using rule 22 (condition -> equal .)
+    var             reduce using rule 22 (condition -> equal .)
+
+
+state 32
+
+    (23) condition -> less .
+
+    num             reduce using rule 23 (condition -> less .)
+    var             reduce using rule 23 (condition -> less .)
+
+
+state 33
+
+    (24) condition -> greater_equal .
+
+    num             reduce using rule 24 (condition -> greater_equal .)
+    var             reduce using rule 24 (condition -> greater_equal .)
+
+
+state 34
+
+    (25) condition -> less_equal .
+
+    num             reduce using rule 25 (condition -> less_equal .)
+    var             reduce using rule 25 (condition -> less_equal .)
+
+
+state 35
+
+    (26) condition -> not_equal .
+
+    num             reduce using rule 26 (condition -> not_equal .)
+    var             reduce using rule 26 (condition -> not_equal .)
+
+
+state 36
+
+    (30) muchotextoI -> muchotexto lparen arg1 rparen .
+
+    corro           reduce using rule 30 (muchotextoI -> muchotexto lparen arg1 rparen .)
+    var             reduce using rule 30 (muchotextoI -> muchotexto lparen arg1 rparen .)
+    ete             reduce using rule 30 (muchotextoI -> muchotexto lparen arg1 rparen .)
+    muchotexto      reduce using rule 30 (muchotextoI -> muchotexto lparen arg1 rparen .)
+    rcolon          reduce using rule 30 (muchotextoI -> muchotexto lparen arg1 rparen .)
+
+
+state 37
+
+    (31) muchotextoI -> muchotexto lparen arg1 coma . arg1 rparen
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 41
+
+state 38
+
+    (11) extralore -> operator arg1 .
+    (12) extralore -> operator arg1 . extralore
+    (11) extralore -> . operator arg1
+    (12) extralore -> . operator arg1 extralore
+    (13) operator -> . plus
+    (14) operator -> . minus
+    (15) operator -> . times
+    (16) operator -> . divide
+
+    corro           reduce using rule 11 (extralore -> operator arg1 .)
+    var             reduce using rule 11 (extralore -> operator arg1 .)
+    ete             reduce using rule 11 (extralore -> operator arg1 .)
+    muchotexto      reduce using rule 11 (extralore -> operator arg1 .)
+    rcolon          reduce using rule 11 (extralore -> operator arg1 .)
+    plus            shift and go to state 24
+    minus           shift and go to state 25
+    times           shift and go to state 26
+    divide          shift and go to state 27
+
+    operator                       shift and go to state 23
+    extralore                      shift and go to state 42
+
+state 39
+
+    (17) eteI -> ete lparen conditional rparen lcolon . instructions rcolon
+    (18) eteI -> ete lparen conditional rparen lcolon . instructions rcolon setchI
+    (2) instructions -> . instructions instruction
+    (3) instructions -> . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instructions                   shift and go to state 43
+    instruction                    shift and go to state 4
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 40
+
+    (19) conditional -> arg1 condition arg1 .
+    (20) conditional -> arg1 condition arg1 . logical conditional
+    (27) logical -> . and
+    (28) logical -> . or
+
+    rparen          reduce using rule 19 (conditional -> arg1 condition arg1 .)
+    and             shift and go to state 45
+    or              shift and go to state 46
+
+    logical                        shift and go to state 44
+
+state 41
+
+    (31) muchotextoI -> muchotexto lparen arg1 coma arg1 . rparen
+
+    rparen          shift and go to state 47
+
+
+state 42
+
+    (12) extralore -> operator arg1 extralore .
+
+    corro           reduce using rule 12 (extralore -> operator arg1 extralore .)
+    var             reduce using rule 12 (extralore -> operator arg1 extralore .)
+    ete             reduce using rule 12 (extralore -> operator arg1 extralore .)
+    muchotexto      reduce using rule 12 (extralore -> operator arg1 extralore .)
+    rcolon          reduce using rule 12 (extralore -> operator arg1 extralore .)
+
+
+state 43
+
+    (17) eteI -> ete lparen conditional rparen lcolon instructions . rcolon
+    (18) eteI -> ete lparen conditional rparen lcolon instructions . rcolon setchI
+    (2) instructions -> instructions . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    rcolon          shift and go to state 48
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instruction                    shift and go to state 12
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 44
+
+    (20) conditional -> arg1 condition arg1 logical . conditional
+    (19) conditional -> . arg1 condition arg1
+    (20) conditional -> . arg1 condition arg1 logical conditional
+    (9) arg1 -> . num
+    (10) arg1 -> . var
+
+    num             shift and go to state 18
+    var             shift and go to state 16
+
+    arg1                           shift and go to state 20
+    conditional                    shift and go to state 49
+
+state 45
+
+    (27) logical -> and .
+
+    num             reduce using rule 27 (logical -> and .)
+    var             reduce using rule 27 (logical -> and .)
+
+
+state 46
+
+    (28) logical -> or .
+
+    num             reduce using rule 28 (logical -> or .)
+    var             reduce using rule 28 (logical -> or .)
+
+
+state 47
+
+    (31) muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .
+
+    corro           reduce using rule 31 (muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .)
+    var             reduce using rule 31 (muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .)
+    ete             reduce using rule 31 (muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .)
+    muchotexto      reduce using rule 31 (muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .)
+    rcolon          reduce using rule 31 (muchotextoI -> muchotexto lparen arg1 coma arg1 rparen .)
+
+
+state 48
+
+    (17) eteI -> ete lparen conditional rparen lcolon instructions rcolon .
+    (18) eteI -> ete lparen conditional rparen lcolon instructions rcolon . setchI
+    (29) setchI -> . setch lcolon instructions rcolon
+
+    corro           reduce using rule 17 (eteI -> ete lparen conditional rparen lcolon instructions rcolon .)
+    var             reduce using rule 17 (eteI -> ete lparen conditional rparen lcolon instructions rcolon .)
+    ete             reduce using rule 17 (eteI -> ete lparen conditional rparen lcolon instructions rcolon .)
+    muchotexto      reduce using rule 17 (eteI -> ete lparen conditional rparen lcolon instructions rcolon .)
+    rcolon          reduce using rule 17 (eteI -> ete lparen conditional rparen lcolon instructions rcolon .)
+    setch           shift and go to state 51
+
+    setchI                         shift and go to state 50
+
+state 49
+
+    (20) conditional -> arg1 condition arg1 logical conditional .
+
+    rparen          reduce using rule 20 (conditional -> arg1 condition arg1 logical conditional .)
+
+
+state 50
+
+    (18) eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .
+
+    corro           reduce using rule 18 (eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .)
+    var             reduce using rule 18 (eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .)
+    ete             reduce using rule 18 (eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .)
+    muchotexto      reduce using rule 18 (eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .)
+    rcolon          reduce using rule 18 (eteI -> ete lparen conditional rparen lcolon instructions rcolon setchI .)
+
+
+state 51
+
+    (29) setchI -> setch . lcolon instructions rcolon
+
+    lcolon          shift and go to state 52
+
+
+state 52
+
+    (29) setchI -> setch lcolon . instructions rcolon
+    (2) instructions -> . instructions instruction
+    (3) instructions -> . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instructions                   shift and go to state 53
+    instruction                    shift and go to state 4
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 53
+
+    (29) setchI -> setch lcolon instructions . rcolon
+    (2) instructions -> instructions . instruction
+    (4) instruction -> . loreI
+    (5) instruction -> . eteI
+    (6) instruction -> . muchotextoI
+    (7) loreI -> . var lore arg1
+    (8) loreI -> . var lore arg1 extralore
+    (17) eteI -> . ete lparen conditional rparen lcolon instructions rcolon
+    (18) eteI -> . ete lparen conditional rparen lcolon instructions rcolon setchI
+    (30) muchotextoI -> . muchotexto lparen arg1 rparen
+    (31) muchotextoI -> . muchotexto lparen arg1 coma arg1 rparen
+
+    rcolon          shift and go to state 54
+    var             shift and go to state 8
+    ete             shift and go to state 9
+    muchotexto      shift and go to state 10
+
+    instruction                    shift and go to state 12
+    loreI                          shift and go to state 5
+    eteI                           shift and go to state 6
+    muchotextoI                    shift and go to state 7
+
+state 54
+
+    (29) setchI -> setch lcolon instructions rcolon .
+
+    corro           reduce using rule 29 (setchI -> setch lcolon instructions rcolon .)
+    var             reduce using rule 29 (setchI -> setch lcolon instructions rcolon .)
+    ete             reduce using rule 29 (setchI -> setch lcolon instructions rcolon .)
+    muchotexto      reduce using rule 29 (setchI -> setch lcolon instructions rcolon .)
+    rcolon          reduce using rule 29 (setchI -> setch lcolon instructions rcolon .)
+
